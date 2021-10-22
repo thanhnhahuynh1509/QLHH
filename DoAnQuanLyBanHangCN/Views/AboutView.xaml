@@ -1,0 +1,179 @@
+﻿<UserControl x:Class="DoAnQuanLyBanHangCN.Views.AboutView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoAnQuanLyBanHangCN.Views"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             FontFamily="r0c0i Linotte"
+             mc:Ignorable="d" 
+             d:DesignHeight="667" d:DesignWidth="1500">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2.2*"/>
+        </Grid.RowDefinitions>
+        <Border CornerRadius="0,0,15,15" Grid.RowSpan="2" Background="#294f52" />
+        
+
+
+        <StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,20,0,0">
+                <TextBlock Text="CHÀO MỪNG QUÝ KHÁCH ĐẾN VỚI"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="35"
+                       FontWeight="Heavy"
+                       Margin="0,20,0,20"
+                       Foreground="#fbffab"/>
+                <TextBlock Text="CELL PHONE F"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="40"
+                       FontWeight="Heavy"
+                       Margin="10,20,0,20"
+                       Foreground="#ffabab"/>
+            </StackPanel>
+            <Border CornerRadius="600" 
+                                Background="#fff" 
+                                Width="90"
+                                Height="80"
+                                Margin="0,0,10,0">
+                <Image Source="../Images/1.png"></Image>
+            </Border>
+
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="../Images/4.png" Width="60" Height="60" VerticalAlignment="Top"/>
+                <TextBlock Text="VỀ CHÚNG TÔI"
+                       FontSize="35"
+                       VerticalAlignment="Top"
+                       FontWeight="Heavy"
+                       Margin="40,0,40,0"
+                       Foreground="#fff"/>
+                <Image Source="../Images/4.png" Width="60" Height="60" VerticalAlignment="Top"/>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel>
+                    <StackPanel>
+                        <fa5:ImageAwesome Foreground="#fff" 
+                                      Icon="Solid_User"
+                                      Height="70" Width="80"
+                                      Margin="0,0,0,30"/>
+                        <TextBlock TextWrapping="WrapWithOverflow"
+                               FontSize="25"
+                               FontWeight="Medium"
+                               Foreground="#fff"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,0">
+                        Khách hàng là trọng tâm
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <fa5:ImageAwesome Foreground="#fff" 
+                                      Icon="Solid_Users"
+                                      Height="80" Width="80"
+                                      Margin="0,80,0,20"/>
+                        <TextBlock TextWrapping="WrapWithOverflow"
+                               FontSize="25"
+                               FontWeight="Medium"
+                               Foreground="#fff"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,0">
+                        Tinh thần tập thể
+                        </TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <StackPanel>
+                        <fa5:ImageAwesome Foreground="#fff" 
+                                      Icon="Solid_ChartArea"
+                                      Height="80" Width="80"
+                                      Margin="0,0,0,20"/>
+                        <TextBlock TextWrapping="WrapWithOverflow"
+                               FontSize="25"
+                               FontWeight="Medium"
+                               Foreground="#fff"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,0">
+                        Mang đến các giá trị vượt trội
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <fa5:ImageAwesome Foreground="#fff" 
+                                      Icon="Solid_MoneyBillAlt"
+                                      Height="80" Width="80"
+                                      Margin="0,80,0,20"/>
+                        <TextBlock TextWrapping="WrapWithOverflow"
+                               FontSize="25"
+                               FontWeight="Medium"
+                               Foreground="#fff"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,0">
+                        Tiết kiệm
+                        </TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <StackPanel>
+                        <fa5:ImageAwesome Foreground="#fff" 
+                                      Icon="Solid_Handshake"
+                                      Height="80" Width="80"
+                                      Margin="0,0,0,20"/>
+                        <TextBlock TextWrapping="WrapWithOverflow"
+                               FontSize="25"
+                               FontWeight="Medium"
+                               Foreground="#fff"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,10,0">
+                        Tôn trọng tất cả các cá nhân
+                        </TextBlock>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <fa5:ImageAwesome Foreground="#fff" 
+                                      Icon="Solid_HouseUser"
+                                      Height="80" Width="80"
+                                      Margin="0,80,0,20"/>
+                        <TextBlock TextWrapping="WrapWithOverflow"
+                               FontSize="25"
+                               FontWeight="Medium"
+                               Foreground="#fff"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,0">
+                        Thân thiện với mọi gia đình
+                        </TextBlock>
+                    </StackPanel>
+
+                </StackPanel>
+
+
+            </Grid>
+
+        </Grid>
+
+
+    </Grid>
+</UserControl>

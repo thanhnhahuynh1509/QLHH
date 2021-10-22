@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="DoAnQuanLyBanHangCN.Views.HangHoaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoAnQuanLyBanHangCN.Views"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             FontFamily="r0c0i Linotte"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="667" d:DesignWidth="1500">
+    <Grid>
+        <Border  CornerRadius="0,0,15,15" 
+                 Grid.RowSpan="2" 
+                 Background="#068c8c"/>
+        <Grid Grid.Row="1">
+
+            <!--Định nghĩa cột có 2 cột. 1 cột để chứa các category, cột 
+                    còn lại chứa sản phẩm chi tiết-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition  Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <!--Dùng scroll viewer để khi các phần tử vượt quá khung hình
+                    nó sẽ tự động tạo ra thanh scroll-->
+
+            <!--CATEGORY-->
+
+            <Grid Grid.Column="0">
+                <StackPanel Width="250" HorizontalAlignment="Center">
+                    <Border BorderThickness="1" BorderBrush="#5694c7" Margin="0,50,0,0"  Background="#5694c7">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                            <fa5:ImageAwesome Icon="Solid_Bars" Height="20" Margin="0,0,10,0" Foreground="#fff"/>
+                            <TextBlock TextAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Padding="0,10,0,10"
+                                            FontSize="20"
+                                            Foreground="#fff"
+                                            Text="Loại Hàng Hóa" />
+
+                        </StackPanel>
+                    </Border>
+                    <ScrollViewer MaxHeight="200" VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="ContainLoaiHang">
+                            <Button FontSize="14" Height="50" Background="#fff" BorderBrush="#ccc">Điện Thoại</Button>
+                            <Button FontSize="14" Height="50" Background="#fff" BorderBrush="#ccc">Máy Tính Bảng</Button>
+                            <Button FontSize="14" Height="50" Background="#fff" BorderBrush="#ccc">Laptop</Button>
+                            <Button FontSize="14" Height="50" Background="#fff" BorderBrush="#ccc">Linh Kiện Điện Tử</Button>
+                        </StackPanel>
+                    </ScrollViewer>
+
+                </StackPanel>
+
+                <StackPanel Width="250" HorizontalAlignment="Center" Margin="0,260,0,0">
+                    <Border BorderThickness="1" BorderBrush="#ebe98a" Margin="0,50,0,0"  Background="#ebe98a">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                            <fa5:ImageAwesome Icon="Solid_Store" Height="20" Margin="0,0,10,0" Foreground="#333"/>
+                            <TextBlock TextAlignment="Center"
+                                            HorizontalAlignment="Center"
+                                            Padding="0,10,0,10"
+                                            FontSize="20"
+                                            Foreground="#333"
+                                            Text="Hãng Hàng Hóa" />
+
+                        </StackPanel>
+                    </Border>
+                    <ScrollViewer MaxHeight="200" VerticalScrollBarVisibility="Auto">
+                        <StackPanel x:Name="ContainHangHangHoa">
+                            <Button FontSize="14" Height="50" Background="#fff" BorderBrush="#ccc">Samsung</Button>
+                            <Button FontSize="14" Height="50" Background="#fff" BorderBrush="#ccc">Apple</Button>
+                            <Button FontSize="14" Height="50" Background="#fff" BorderBrush="#ccc">Xiaomi</Button>
+                            <Button FontSize="14" Height="50" Background="#fff" BorderBrush="#ccc">LG Phone</Button>
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <Button Style="{StaticResource ButtonToolExitTopMenu}"
+                            Background="#172774"
+                            Foreground="#fff"
+                            Content="Reset"
+                            x:Name="BtnReset"
+                            Click="BtnReset_Click"
+                            Margin="0,30,0,0"/>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Button Style="{StaticResource ButtonToolExitTopMenu}"
+                        x:Name="BtnAdd"
+                        Click="BtnAdd_Click"
+                        Background="#66e8b4" 
+                        Foreground="#fff"
+                        Content="Thêm"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Width="80"
+                        Height="40"
+                        FontSize="18"
+                        Visibility="Hidden"
+                        Margin="0,-50,20,0"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <WrapPanel Orientation="Horizontal" Margin="0,50,0,0" x:Name="ContainHangHoa">
+
+                        <Border CornerRadius="15"  Background="#fff" Margin="0,0,10,10">
+                            <StackPanel Width="250" Height="300">
+                                <Image Source="../Images/2.jpg" Height="200" Width="200" Margin="0,10,0,0"/>
+                                <TextBlock Text="Samsung Galaxy A20" 
+                                   Foreground="#333"
+                                   TextAlignment="Center"
+                                   Margin="0,10,0,0"
+                                   FontSize="16"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,10,0,0" HorizontalAlignment="Center">
+                                    <Button Width="80" Height="40" 
+                                    Style="{StaticResource ButtonToolExitTopMenu}"
+                                    Background="#E63E6D"
+                                    Foreground="#fff"
+                                    FontWeight="Medium"
+                                    Margin="0,0,15,0"
+                                    FontSize="14">300 $</Button>
+                                    
+                                    <Button Width="130" Height="40" 
+                                    Style="{StaticResource ButtonToolExitTopMenu}"
+                                    Background="#D5EEBB"
+                                    Foreground="#333"
+                                    FontWeight="Medium"
+                                    FontSize="14"
+                                    Tag="2">Thêm vào giỏ hàng</Button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                    </WrapPanel>
+                </ScrollViewer>
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+</UserControl>

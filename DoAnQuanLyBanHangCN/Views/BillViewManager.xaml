@@ -1,0 +1,316 @@
+﻿<UserControl x:Class="DoAnQuanLyBanHangCN.Views.BillViewManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DoAnQuanLyBanHangCN.Views"
+             FontFamily="r0c0i Linotte"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="667" d:DesignWidth="1500">
+    <Grid>
+        <Grid>
+
+            <Border CornerRadius="0,0,15,15" 
+                Grid.RowSpan="2" 
+                Background="#1b6d82" />
+
+            <Grid Margin="15">
+
+                <DataGrid AutoGenerateColumns="False"
+                      GridLinesVisibility="Horizontal"
+                      CanUserAddRows="False"
+                      AlternationCount="100000"
+                      x:Name="listBills">
+
+                    <!-- Chỉnh sửa lại các dòng -->
+                    <DataGrid.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}"
+						BasedOn="{x:Null}">
+                            <Setter Property="OverridesDefaultStyle" Value="True"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                        <Border Background="{TemplateBinding Background}"
+									        BorderBrush="{TemplateBinding BorderBrush}"
+									        BorderThickness="{TemplateBinding BorderThickness}"
+									        SnapsToDevicePixels="true">
+                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGrid.CellStyle>
+
+                    <DataGrid.Columns>
+
+
+                        <DataGridTextColumn 
+                            Header="STT" 
+                            FontSize="18"
+                            Foreground="#333"
+                            FontWeight="Bold"
+                            IsReadOnly="True"
+                            Binding="{Binding AlternationIndex, RelativeSource={RelativeSource AncestorType= DataGridRow}}"
+                            Width="100">
+
+                            <!--Chỉnh sửa lại kiểu header-->
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" 
+                                        Value="#333"/>
+                                    <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                                    <Setter Property="Padding" 
+                                        Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontWeight" Value="Heavy"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Mã Hóa Đơn" 
+                            FontSize="18"
+                            Foreground="#333"
+                            FontWeight="Bold"
+                            IsReadOnly="True"
+                            Binding="{Binding Path=MaHoaDon}"
+                            Width="150">
+
+                            <!-- Chỉnh sửa lại kiểu header-->
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" 
+                                        Value="#333"/>
+                                    <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                                    <Setter Property="Padding" 
+                                        Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontWeight" Value="Heavy"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+
+                        <DataGridTextColumn 
+                            Header="Tên Hàng Hóa" 
+                            FontSize="18"
+                            Foreground="#333"
+                            FontWeight="Bold"
+                            IsReadOnly="True"
+                            Binding="{Binding Path=HangHoa.TenHangHoa}"
+                            Width="250">
+
+                            <!-- Chỉnh sửa lại kiểu header-->
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" 
+                                        Value="#333"/>
+                                    <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                                    <Setter Property="Padding" 
+                                        Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontWeight" Value="Heavy"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Giá ($)" 
+                            FontSize="18"
+                            Foreground="#333"
+                            FontWeight="Bold"
+                            IsReadOnly="True"
+                            Binding="{Binding Path=HangHoa.Gia}"
+                            Width="200">
+
+                            <!-- Chỉnh sửa lại kiểu header-->
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" 
+                                        Value="#333"/>
+                                    <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                                    <Setter Property="Padding" 
+                                        Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontWeight" Value="Heavy"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Ngày Đặt Hàng" 
+                            FontSize="18"
+                            Foreground="#333"
+                            FontWeight="Bold"
+                            IsReadOnly="True"
+                            Binding="{Binding Path=NgayLapHoaDon}"
+                            Width="250">
+
+                            <!-- Chỉnh sửa lại kiểu header-->
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" 
+                                        Value="#333"/>
+                                    <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                                    <Setter Property="Padding" 
+                                        Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontWeight" Value="Heavy"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Trạng Thái" 
+                            FontSize="18"
+                            Foreground="#333"
+                            FontWeight="Bold"
+                            IsReadOnly="True"
+                            Binding="{Binding Path=TrangThai}"
+                            Width="250">
+
+                            <!-- Chỉnh sửa lại kiểu header-->
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" 
+                                        Value="#333"/>
+                                    <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                                    <Setter Property="Padding" 
+                                        Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontWeight" Value="Heavy"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Tên KH" 
+                            FontSize="18"
+                            Foreground="#333"
+                            FontWeight="Bold"
+                            IsReadOnly="True"
+                            Binding="{Binding Path=TaiKhoan.HoTen}"
+                            Width="250">
+
+                            <!-- Chỉnh sửa lại kiểu header-->
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" 
+                                        Value="#333"/>
+                                    <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                                    <Setter Property="Padding" 
+                                        Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontWeight" Value="Heavy"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="Địa chỉ" 
+                            FontSize="18"
+                            Foreground="#333"
+                            FontWeight="Bold"
+                            IsReadOnly="True"
+                            Binding="{Binding Path=TaiKhoan.DiaChi}"
+                            Width="250">
+
+                            <!-- Chỉnh sửa lại kiểu header-->
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" 
+                                        Value="#333"/>
+                                    <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                                    <Setter Property="Padding" 
+                                        Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontWeight" Value="Heavy"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn 
+                            Header="SDT" 
+                            FontSize="18"
+                            Foreground="#333"
+                            FontWeight="Bold"
+                            IsReadOnly="True"
+                            Binding="{Binding Path=TaiKhoan.SDT}"
+                            Width="250">
+
+                            <!-- Chỉnh sửa lại kiểu header-->
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" 
+                                        Value="#333"/>
+                                    <Setter Property="HorizontalContentAlignment" 
+                                        Value="Center"/>
+                                    <Setter Property="Padding" 
+                                        Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                    <Setter Property="FontWeight" Value="Heavy"/>
+
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTemplateColumn MinWidth="120">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="BtnGiaoHang"
+                                        Content="Cập Nhật" 
+                                        Tag="{Binding Path=MaHoaDon}"
+                                        Click="BtnGiaoHang_Click"
+                                        Style="{StaticResource ButtonToolExitTopMenu}"
+                                        Background="#EBA83A"
+                                        Foreground="#fff"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn MinWidth="120">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="BtnTuChoi"
+                                        Tag="{Binding Path=MaHoaDon}"
+                                        Content="Từ Chối" 
+                                        Click="BtnTuChoi_Click"
+                                        Margin="10"
+                                        Style="{StaticResource ButtonToolExitTopMenu}"
+                                        Background="#A9333A"
+                                        Foreground="#fff"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+
+                        </DataGridTemplateColumn>
+
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,131 @@
+﻿<Window x:Class="DoAnQuanLyBanHangCN.AdminForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DoAnQuanLyBanHangCN"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        FontFamily="r0c0i Linotte"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Loaded="Window_Loaded"
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="900" Width="1500">
+    <Border x:Name="BackgroundWindow" CornerRadius="15" Background="#A2D2FF">
+
+        <Grid>
+
+            <Border x:Name="BackgroundWindowCorner" Background="#B5DEFF" CornerRadius="15,0,1800,0" Margin="0,0,600,100"></Border>
+            <!-- Margin 15 để tạo khoảng cách từ bìa là 15px (pixel: đơn vị dùng tuyệt đối) -->
+            <Grid>
+
+                <!-- Định nghĩa grid(lưới dùng để thiết kế) này có 2 dòng và dòng thứ 2
+                cao hơn 6 lần dòng thứ 1 (thứ tự khi gọi là 0,1,...) -->
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="6*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Dòng RowDefinitions đầu tiên dùng để chứa các button thoát với nhãn hiệu -->
+                <Grid Grid.Row="0">
+
+                    <!--Bên trái từ về chúng tôi trở về trước-->
+                    <StackPanel Orientation="Horizontal" 
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Center"
+                                Margin="10,0,0,0">
+                        <!--LOGO-->
+                        <Border CornerRadius="600" 
+                                Background="#fff" 
+                                Width="90"
+                                Height="80"
+                                Margin="0,0,10,0">
+                            <Image Source="./Images/1.png"></Image>
+                        </Border>
+
+                        <!--TÊN CỬA HÀNG-->
+                        <TextBlock Text="CELL PHONE F"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   FontSize="30"
+                                   FontWeight="Heavy"
+                                   Foreground="#fff"
+                                   Margin="0,0,50,0"></TextBlock>
+
+                        <!--Button lựa chọn-->
+                        <Button Style="{StaticResource ButtonTopMenu}"  FontSize="18" x:Name="BtnHangHoa" Click="BtnHangHoa_Click">
+                            <Button.Content>
+
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Padding="10,0,10,0">
+                                        HÀNG HÓA
+                                    </TextBlock>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Style="{StaticResource ButtonTopMenu}" x:Name="BtnLoaiHang" Click="BtnLoaiHang_Click" FontSize="18">
+                            <Button.Content>
+                                <TextBlock Padding="10,0,10,0">
+                                    LOẠI HÀNG
+                                </TextBlock>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Style="{StaticResource ButtonTopMenu}" x:Name="BtnHangHanHoa" Click="BtnHangHanHoa_Click" FontSize="18">
+                            <Button.Content>
+                                <TextBlock Padding="10,0,10,0">
+                                    HÃNG HÀNG HÓA
+                                </TextBlock>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Style="{StaticResource ButtonTopMenu}" x:Name="BtnDonDatHang" Click="BtnDonDatHang_Click" FontSize="18">
+                            <Button.Content>
+                                <TextBlock Padding="10,0,10,0">
+                                    ĐƠN ĐẶT HÀNG
+                                </TextBlock>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+
+                    <!--Bên phải và phần còn lại-->
+                    <StackPanel Orientation="Horizontal" 
+                                HorizontalAlignment="Right" 
+                                VerticalAlignment="Center">
+                        <Button Style="{StaticResource ButtonToolExitTopMenu}"
+                                Width="auto"
+                                Height="auto"
+                                Margin="0,0,20,70"
+                                x:Name="BtnLogout"
+                                Click="BtnLogout_Click">
+                            <Button.Content>
+                                <fa5:ImageAwesome Icon="Solid_SignOutAlt" Foreground="#333" Height="25"/>
+                            </Button.Content>
+                        </Button>
+                        <Button Style="{StaticResource ButtonToolExitTopMenu}"
+                                Width="auto"
+                                Height="auto"
+                                Margin="0,0,10,70"
+                                x:Name="BtnExit"
+                                Click="BtnExit_Click">
+                            <Button.Content>
+                                <fa5:ImageAwesome Icon="Solid_PowerOff" Foreground="#F54748" Height="25"/>
+                            </Button.Content>
+                        </Button>
+                    </StackPanel>
+
+                </Grid>
+
+                <!-- Dòng RowDefinitions thứ 2 dùng để chứa các phần 
+                còn lại như thông tin hàng hóa,...-->
+                <ContentControl Grid.Row="1" Content="{Binding}" />
+
+            </Grid>
+
+        </Grid>
+
+    </Border>
+</Window>
